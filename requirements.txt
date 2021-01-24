@@ -1,0 +1,4 @@
+awsebcli==3.19.1
+Django==2.1.1
+Pillow==8.1.0
+pytz==2020.1

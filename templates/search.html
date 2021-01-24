@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Search and Delete</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div>
+    {% for message in messages %}
+    <h3> {{ message }}</h3>
+    {% endfor %}
+</div>
+
+<div>
+    {% if obj %}
+    <h3>Delete the image with name {{obj}} ?</h3><br>
+
+        <form action="delete" method="post">
+        {% csrf_token %}
+        For confirmation , Enter book name again :<input type="text" placeholder="Enter book name" name='value1' required><br><br>
+        <button type="submit" class="btn btn-lg btn-danger">Delete</button>
+        </form>
+    <br>
+    <a href="{% url 'index' %}" class="btn btn-lg btn-primary">Go Back</a>
+    {% else %}
+    <a href="{% url 'index' %}" class="btn btn-lg btn-primary">Go Back</a>
+    {% endif %}
+</div>
+
+</body>
+</html>
